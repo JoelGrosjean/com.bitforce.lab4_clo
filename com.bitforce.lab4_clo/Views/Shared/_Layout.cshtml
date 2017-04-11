@@ -3,13 +3,24 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>Community Living Oakville</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <!--Header with social media-->
+    <header class="navbar navbar-inverse navbar-fixed-top" style="background-color:#049cdb;border-color:#049cdb;">
+        <img src="~/Images/community_living_fb.PNG" style="padding:10px;padding-left:50px;" />
+        <div style="float:right;padding-right:5em">@Html.Partial("_LoginPartial")</div>
+    </header>
+
+    <!--Community Living Oakville Logo-->
+    <div>
+        <img src="~/Images/community_living_logo.PNG" style="padding:10px;padding-left:50px;" />
+    </div>
+
+    <!--Navbar-->
+    <div class="navbar navbar-inverse" style="background-color:#eeeded;border-color:#eeeded;height:15px">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -17,25 +28,56 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <!--Fix to go to actual Service Areas Page-->
+                    <li>@Html.ActionLink("Service Areas", "Service_Areas", "Home")</li>
+                    <!--Fix to go to actual Events Page-->
+                    <li>@Html.ActionLink("Events", "Events", "Home")</li>
+                    <!--Fix to go to actual Activities Page-->
+                    <li>@Html.ActionLink("Activities", "Activities", "Home")</li>
                 </ul>
-                @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
+
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
     </div>
+
+    <!--Footer-->
+    <footer class="navbar" style="background-color:#049cdb;border-color:#049cdb;position:absolute;width:100%">
+        <div style="padding-left:25em;color:white;width:500px;">
+            <h6>____________________________________________________________________________________</h6>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6" style="padding-left:32em;color:white;">
+                <h6>About Us</h6>
+                <h6>Our Services</h6>
+                <h6>Staff directory</h6>
+                <h6>Fundraising Events/Events</h6>
+                <h6>Complaint Process</h6>
+            </div>
+            <div class="col-sm-6" style="padding-left:5em;color:white;">
+                <h4>Home Office:</h4>
+                <h6>301 Wyecroft Rd</h6>
+                <h6>Oakville, Ontario, L6K 2H2</h6>
+                <h6>Phone:(905) 844-0146</h6>
+                <h6>General Fax:(905) 844-1832</h6>
+                <h6>Confidential Fax:(905) 339-1541</h6>
+            </div>
+        </div>
+
+        <div style="padding-left:25em;color:white;width:500px;">
+            <h6>____________________________________________________________________________________</h6>
+        </div>
+
+        <p style="padding-left:32em;color:white;">Copyright &copy; @DateTime.Now.Year BitForce Technologies. All Rights Reserved.</p>
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
